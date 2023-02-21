@@ -1,5 +1,5 @@
 <?php
-require functions.php;
+require 'functions.php';
 
 if(isset($_POST["register"])){
     if(registrasi($_POST) > 0){
@@ -42,7 +42,7 @@ if(isset($_POST["register"])){
             </li>
             <li>
                 <label for="password2">Konfirmasi password</label>
-                <input type="password2" name="password2" id="password2">
+                <input type="password" name="password2" id="password2">
             </li>
             <li>
                 <button type="submit" name="register">Register</button>
