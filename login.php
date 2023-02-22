@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+// cek apakah ada session login atau belum
+if(isset($_SESSION["login"])){
+    header("Location: index.php");
+    exit;
+}
 
 require 'functions.php';
 
@@ -13,6 +20,9 @@ if(isset($_POST["login"])){
         // cek password
         $row = mysqli_fetch_assoc($result);
         if(password_verify($password, $row["password"])){
+            // set session
+            $_SESSION["login"] = true;
+            
             header("Location: index.php");
             exit;
         } 
